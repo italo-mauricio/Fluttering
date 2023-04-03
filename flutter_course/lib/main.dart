@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(AppWidget());
+  runApp(AppWidget(
+    title: "Fluttering",
+  ));
 }
 
 class AppWidget extends StatelessWidget {
+  final String title;
+
+  const AppWidget({super.key, required this.title});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-          child: Text("Olá pessoas",
-              textDirection: TextDirection.ltr,
-              style: TextStyle(
-                  color: Color.fromARGB(255, 221, 17, 17), fontSize: 50.0))),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+      home: Container(
+        child: Center(child: Text("Music Awards")),
+      ),
     );
   }
 }
