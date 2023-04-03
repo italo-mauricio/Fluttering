@@ -13,14 +13,21 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(),
-       body: Center(
-          child: GestureDetector(
-        child: Text('Contador: $count'),
-        onTap: () {
+       appBar: AppBar(
+        title: Text('Home Page'),
+       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () { 
           setState(() {
             count++;
           });
+         },),
+       body: Center(
+          child: GestureDetector(
+        child: Text('Teste $count',
+        style: const TextStyle(fontSize: 200),),
+        onTap: () {
         },
       )),
     );
