@@ -14,25 +14,30 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: Container(
-        child: Center(child: Text("Music Awards")),
-      ),
+      theme: ThemeData(primarySwatch: Colors.amber),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
+  State<HomePage> createState() {
     return HomePageState();
   }
 }
 
 class HomePageState extends State<HomePage> {
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Container(
+      child: Center(
+        child: GestureDetector(
+        child: const Text("Music Awards"),
+        onTap: () => print("Clicado"),
+      )),
+    );
   }
 }
