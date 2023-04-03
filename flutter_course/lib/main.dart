@@ -34,9 +34,13 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: GestureDetector(
-        child: const Text("Music Awards"),
-        onTap: () => print("Clicado"),
+          child: GestureDetector(
+        child: Text('Contador: $count'),
+        onTap: () {
+          setState(() {
+            count++;
+          });
+        },
       )),
     );
   }
