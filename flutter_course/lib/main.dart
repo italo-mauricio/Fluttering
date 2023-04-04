@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app_widget.dart';
+import 'Atividade11Questoes/atividade1.dart';
 
 void main() {
-  runApp(AppWidget(title: '',));
+  Atividade1();
 }
-
-
-  
