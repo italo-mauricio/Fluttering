@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(AppWidget(title: "App inicial",));
+  runApp(AppWidget(
+    title: "App inicial",
+  ));
 }
 
 class AppWidget extends StatelessWidget {
@@ -10,14 +12,33 @@ class AppWidget extends StatelessWidget {
   const AppWidget({super.key, required this.title});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          title,
-          textDirection: TextDirection.ltr,
-          style: TextStyle(color: Colors.black, fontSize: 20.0),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.amber),
+      home: HomePage(),
     );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() {
+    return HomePageState();
+  }
+}
+
+class HomePageState extends State<HomePage> {
+  int count = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Center(
+            child: GestureDetector(
+                child: Text("clicando $count"),
+                onTap: () {
+                  setState(() {
+                    count++;
+                  });
+                })));
   }
 }
