@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'Atividade11Questoes/atividade1.dart';
-
-void main() {
-  Atividade1();
+main() {
+  runApp(Container(
+    child: const Center(
+      child: Text(
+        'Aplicativo Inicial',
+        textDirection: TextDirection.ltr,
+        style: TextStyle(color: Colors.black, fontSize: 20.0),
+      ),
+    ),
+  ));
 }
