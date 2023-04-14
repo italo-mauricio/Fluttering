@@ -15,17 +15,19 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("First APP"),
       ),
-      body: Center(
-          child: GestureDetector(
-              child: Text(
-                "clicando $count",
-                style: TextStyle(fontSize: 100),
-              ),
-              onTap: () {
-                setState(() {
-                  count++;
-                });
-              })),
+      body: Container(
+        height: 200,
+        width: 200,
+        color: Colors.amber,
+        child: Align(
+          alignment: Alignment.center,
+          child: Container(
+            height: 100,
+            width: 100,
+            color: Colors.black,
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
