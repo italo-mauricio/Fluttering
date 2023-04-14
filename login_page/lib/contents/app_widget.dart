@@ -16,7 +16,7 @@ class AppWidget extends StatelessWidget {
             brightness: AppController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
           ),
           home:
-          HomePage(),
+          LoginPage(),
         );
       }, animation: AppController.instance,
     );
