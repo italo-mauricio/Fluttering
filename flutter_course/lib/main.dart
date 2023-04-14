@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_widget.dart';
+import 'GerenciaEstado/app_widget.dart';
 
 main() {
   runApp(const AppWidget());
