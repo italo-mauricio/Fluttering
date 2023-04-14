@@ -6,9 +6,9 @@ import 'home_page.dart';
 
 
 class AppWidget extends StatelessWidget {
-  final String title;
 
-  const AppWidget({super.key, required this.title});
+
+  const AppWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
