@@ -13,15 +13,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("First APP"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            count++;
-          });
-        },
+        title: const Text("First APP"),
       ),
       body: Center(
           child: GestureDetector(
@@ -34,6 +26,14 @@ class HomePageState extends State<HomePage> {
                   count++;
                 });
               })),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
+      ),
     );
   }
 }
