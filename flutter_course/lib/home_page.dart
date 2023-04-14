@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app_controller.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() {
@@ -9,23 +11,19 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("First APP"),
       ),
-      body: Container(
-        height: 200,
-        width: 200,
-        color: Colors.amber,
-        child: Align(
-          alignment: Alignment.center,
-          child: Container(
-            height: 100,
-            width: 100,
-            color: Colors.black,
-          ),
+      body: Center(
+        child: Switch(
+          value: AppController.instance.isDarkTheme,
+          onChanged: (value) {
+            AppController.instance.changeTheme();
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
