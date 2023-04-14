@@ -9,11 +9,13 @@ class AppWidget extends StatelessWidget {
     return AnimatedBuilder(
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.red,
             brightness: AppController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
           ),
-          home: HomePage(),
+          home:
+          HomePage(),
         );
       }, animation: AppController.instance,
     );
