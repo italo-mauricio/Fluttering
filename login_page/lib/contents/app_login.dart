@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (kDebugMode) {
                         print("E-mail e senha corretos");
                         print("Login efetuado com sucesso!");
-                        Navigator.of(context).push(
+                        Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => HomePage())
                         );
                       }
