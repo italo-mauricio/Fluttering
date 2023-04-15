@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -37,7 +39,8 @@ class _LoginPageState extends State<LoginPage> {
           height: MediaQuery.of(context).size.height,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               TextField(
                 onChanged: (text) {
                   setState(() {
@@ -72,12 +75,16 @@ class _LoginPageState extends State<LoginPage> {
                           user['password'] == password) {
                         isValid = true;
                         break;
+                        
                       }
                     }
                     if (isValid) {
                       if (kDebugMode) {
                         print("E-mail e senha corretos");
                         print("Login efetuado com sucesso!");
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomePage())
+                        );
                       }
                     } else {
                       if (kDebugMode) {
