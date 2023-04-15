@@ -22,10 +22,16 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Email',
+                  border: OutlineInputBorder(),),
+              ),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
                   border: OutlineInputBorder(),),
               ),
         
