@@ -10,9 +10,23 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+bool _isValidEmail(String email) {
+  return RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
+}
+
+bool _isValidPassword(String password) {
+  return password.length >= 6;
+}
+
 class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
+    List<Map<String, String>> validUsers = [
+    {'email': 'italomauricio98@gmail.com', 'password': '123'},
+    {'email': 'outroemail@example.com', 'password': 'outrasenha'},
+    // adicione outros usuários válidos aqui, se necessário
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +65,22 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
-                  if (email.toLowerCase().trim() == 'italomauricio98@gmail.com' && password == '123') {
-                      if (kDebugMode) {
-                        print("Senha correta");
-                      }
-                    
+                    bool isValid = false;
+                for (var user in validUsers) {
+                  if (user['email'] == email && user['password'] == password) {
+                    isValid = true;
+                    break;
                   }
+                }
+                if (isValid) {
+                  if (kDebugMode) {
+                    print("E-mail e senha corretos");
+                  }
+                } else {
+                  if (kDebugMode) {
+                    print("E-mail ou senha incorretos");
+                  }
+                }
                 },
                 child: Text('Entrar'))
           ]),
