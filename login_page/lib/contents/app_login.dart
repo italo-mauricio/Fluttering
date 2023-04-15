@@ -21,6 +21,7 @@ bool _isValidPassword(String password) {
 class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
+
     List<Map<String, String>> validUsers = [
     {'email': 'italomauricio98@gmail.com', 'password': '123'},
     {'email': 'outroemail@example.com', 'password': 'outrasenha'},
@@ -65,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 15),
             ElevatedButton(
                 onPressed: () {
-                    bool isValid = false;
+                bool isValid = false;
                 for (var user in validUsers) {
                   if (user['email'] == email && user['password'] == password) {
                     isValid = true;
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 }
                 },
-                child: Text('Entrar'))
+                child: const Text('Entrar'))
           ]),
         ),
       ),
