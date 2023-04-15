@@ -22,69 +22,73 @@ class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
 
-    List<Map<String, String>> validUsers = [
+  List<Map<String, String>> validUsers = [
     {'email': 'italomauricio98@gmail.com', 'password': '123'},
     {'email': 'outroemail@example.com', 'password': 'outrasenha'},
     // adicione outros usuários válidos aqui, se necessário
   ];
 
-
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  email = text;
-                });
-              },
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  password = text;
-                });
-              },
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButton(
-                onPressed: () {
-                bool isValid = false;
-                for (var user in validUsers) {
-                  if (user['email'] == email && user['password'] == password) {
-                    isValid = true;
-                    break;
-                  }
-                }
-                if (isValid) {
-                  if (kDebugMode) {
-                    print("E-mail e senha corretos");
-                  }
-                } else {
-                  if (kDebugMode) {
-                    print("E-mail ou senha incorretos");
-                  }
-                }
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              TextField(
+                onChanged: (text) {
+                  setState(() {
+                    email = text;
+                  });
                 },
-                child: const Text('Entrar'))
-          ]),
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                onChanged: (text) {
+                  setState(() {
+                    password = text;
+                  });
+                },
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 15),
+              ElevatedButton(
+                  onPressed: () {
+                    bool isValid = false;
+                    for (var user in validUsers) {
+                      if (user['email'] == email &&
+                          user['password'] == password) {
+                        isValid = true;
+                        break;
+                      }
+                    }
+                    if (isValid) {
+                      if (kDebugMode) {
+                        print("E-mail e senha corretos");
+                        print("Login efetuado com sucesso!");
+                      }
+                    } else {
+                      if (kDebugMode) {
+                        print("E-mail ou senha incorretos");
+                        print("Login Invalido");
+                      }
+                    }
+                  },
+                  child: const Text('Entrar'))
+            ]),
+          ),
         ),
       ),
     );
