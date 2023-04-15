@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Emaillllll',
+                  labelText: 'Emaillllllll',
                   border: OutlineInputBorder(),),
               ),
               TextField(
