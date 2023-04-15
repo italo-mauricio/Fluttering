@@ -75,16 +75,13 @@ class _LoginPageState extends State<LoginPage> {
                           user['password'] == password) {
                         isValid = true;
                         break;
-                        
                       }
                     }
                     if (isValid) {
                       if (kDebugMode) {
                         print("E-mail e senha corretos");
                         print("Login efetuado com sucesso!");
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => HomePage())
-                        );
+                        Navigator.of(context).pushReplacementNamed('/home');
                       }
                     } else {
                       if (kDebugMode) {
