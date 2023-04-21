@@ -46,56 +46,63 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               height: 20,
             ),
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  email = text;
-                });
-              },
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(children: [
+                  TextField(
+                    onChanged: (text) {
+                      setState(() {
+                        email = text;
+                      });
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  TextField(
+                    onChanged: (text) {
+                      setState(() {
+                        password = text;
+                      });
+                    },
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                      onPressed: () {
+                        bool isValid = false;
+                        for (var user in validUsers) {
+                          if (user['email'] == email &&
+                              user['password'] == password) {
+                            isValid = true;
+                            break;
+                          }
+                        }
+                        if (isValid) {
+                          if (kDebugMode) {
+                            print("E-mail e senha corretos");
+                            print("Login efetuado com sucesso!");
+                            Navigator.of(context).pushReplacementNamed('/home');
+                          }
+                        } else {
+                          if (kDebugMode) {
+                            print("E-mail ou senha incorretos");
+                            print("Login Invalido");
+                          }
+                        }
+                      },
+                      child: const Text('Entrar'))
+                ]),
               ),
             ),
-            const SizedBox(height: 10),
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  password = text;
-                });
-              },
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButton(
-                onPressed: () {
-                  bool isValid = false;
-                  for (var user in validUsers) {
-                    if (user['email'] == email &&
-                        user['password'] == password) {
-                      isValid = true;
-                      break;
-                    }
-                  }
-                  if (isValid) {
-                    if (kDebugMode) {
-                      print("E-mail e senha corretos");
-                      print("Login efetuado com sucesso!");
-                      Navigator.of(context).pushReplacementNamed('/home');
-                    }
-                  } else {
-                    if (kDebugMode) {
-                      print("E-mail ou senha incorretos");
-                      print("Login Invalido");
-                    }
-                  }
-                },
-                child: const Text('Entrar'))
           ]),
         ),
       ),
@@ -109,8 +116,11 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         SizedBox(
             height: MediaQuery.of(context).size.height,
-            child: Image.asset('assets/images/12.jpg', fit: BoxFit.cover,)),
-        Container(color: Colors.black.withOpacity(0.3),),
+            child: Image.asset(
+              'assets/images/12.jpg',
+              fit: BoxFit.cover,
+            )),
+        Container(color: Colors.black.withOpacity(0.3)),
         _body(),
       ],
     ));
