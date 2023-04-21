@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'app_login.dart';
 import 'app_controller.dart';
@@ -17,18 +18,27 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Drawer(
         child: Column(children: [
+          Column(
+            children: [
+              UserAccountsDrawerHeader(
+                currentAccountPicture: Image.network('https://www.ofutebolero.com.br/__export/1681996500163/sites/elfutboleromx/img/2023/04/19/pronostica_y_gana_x88x.png_1169307048.png'),
+                accountName: const Text('Lionel Messi'), accountEmail: const Text('soufodamelhordetodos@gmail.com')),
+            ],
+          ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Inicio'),
-            subtitle: Text('Tela de Inicio'),
+            leading: const Icon(Icons.home),
+            title: const Text('Inicio'),
+            subtitle: const Text('Tela de Inicio'),
             onTap: () {
-              print('home');
+              if (kDebugMode) {
+                print('home');
+              }
             },
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Logout'),
-            subtitle: Text('Finalizar sessão'),
+            leading: const Icon(Icons.home),
+            title: const Text('Logout'),
+            subtitle: const Text('Finalizar sessão'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
             },
@@ -39,7 +49,7 @@ class HomePageState extends State<HomePage> {
         title: const Text("First APP"),
         actions: [CustomSwitch()],
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Column(
