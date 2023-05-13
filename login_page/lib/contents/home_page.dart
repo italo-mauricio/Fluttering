@@ -21,8 +21,10 @@ class HomePageState extends State<HomePage> {
           Column(
             children: [
               UserAccountsDrawerHeader(
-                currentAccountPicture: Image.network('https://www.ofutebolero.com.br/__export/1681996500163/sites/elfutboleromx/img/2023/04/19/pronostica_y_gana_x88x.png_1169307048.png'),
-                accountName: const Text('Lionel Messi'), accountEmail: const Text('soufodamelhordetodos@gmail.com')),
+                currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTedaPWyAeCHGxGgSZ8k5O__qCb3jvH6QA-oN-h-t5MqHZqHSCzz6tAQ9z01icflBxjOk0&usqp=CAU')),
+                accountName: const Text('Lionel Messi'), accountEmail: const Text('messithegoat@gmail.com')),
             ],
           ),
           ListTile(
@@ -61,24 +63,7 @@ class HomePageState extends State<HomePage> {
             Container(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  color: Colors.black,
-                ),
-                Container(
-                  width: 50,
-                  height: 50,
-                  color: Colors.black,
-                ),
-                Container(
-                  width: 50,
-                  height: 50,
-                  color: Colors.black,
-                ),
-              ],
+              crossAxisAlignment: CrossAxisAlignment.center,  
             ),
           ],
         ),

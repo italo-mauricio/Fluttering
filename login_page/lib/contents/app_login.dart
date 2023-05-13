@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   String password = '';
 
   List<Map<String, String>> validUsers = [
-    {'email': 'italomauricio98@gmail.com', 'password': '123'},
+    {'email': 'italomauricio@gmail.com', 'password': '123'},
     {'email': 'outroemail@example.com', 'password': 'outrasenha'},
     // adicione outros usuários válidos aqui, se necessário
   ];
